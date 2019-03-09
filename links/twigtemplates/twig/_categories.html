@@ -1,0 +1,29 @@
+{% extends '_base.html' %}
+{% block nav_li %}
+	<nav id="navbar">
+		<ul></a></li>
+			<li><a class="Hoover2" href="user">Perfil</a></li>
+			<li><a class="Hoover2" href="" id="cerrarSesion">Cerrar Sesión</a></li>
+		</ul>
+	</nav>
+{% endblock %}
+
+{% block content %}
+	<h1 class="centrar" style="width:100%; text-align:center; margin-top: 50px">{{ titulo }}</h1>
+	<div id="contenedorCategorias">
+	<!--{% for cat in listaCategorias %}
+		<p style="width:100%; text-align:center; margin-top: 50px; margin-bottom: 50px;">
+		    <span>ID categoría: </span>{{ cat.id }} / 
+		    <span>Nombre de la categoría: </span> {{ cat.nombre }} 
+		    <a style="color:black;" href="" id="{{cat.id}}"> &rarr;Borrar</a></p>
+		    
+	{% endfor %}-->
+	</div>
+	
+	<div style="width: 250px;display:flex; flex-flow: column; margin: 0 auto; text-align:center;">
+		<h2>Crear una categoría</h2>
+		<p>Nombre de la categoría</p>
+		<input type="text" name="categorianombre" id="categorianombre" required/>
+		<a href="#" id="crearCategoria" style="color:black;margin-bottom: 20px; margin-top: 10px;">Crear</a>
+	</div>
+{% endblock %}

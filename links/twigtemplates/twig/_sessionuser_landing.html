@@ -1,0 +1,64 @@
+{% extends '_base.html' %}
+{% block nav_li %}
+	<nav id="navbar">
+		<ul></a></li>
+			<!--<li><a class="Hoover2" href="paginacion">Enlaces</a></li>-->
+			<li><a class="Hoover2" href="categorias">Categorias</a></li>
+			<li><a class="Hoover2" href="" id="cerrarSesion">Cerrar Sesión</a></li>
+		</ul>
+	</nav>
+{% endblock %}
+
+{% block content %}
+	<h1 class="centrar" style="width:100%; text-align:center; margin-top: 50px">{{ titulo }}</h1>
+	<p style="width:100%; text-align:center; margin-top: 50px; margin-bottom: 50px;">
+	<span>Nombre: </span>{{ user.nombre }} 
+	/ <span>Correo: </span> {{ user.correo }} 
+	/ <span>Alias: </span> {{ user.alias }}
+	
+	<h1 class="centrar" style="width:100%; text-align:center; margin-top: 50px">Marcadores</h1>
+	<table style="border: 1px solid black;margin: 0 auto;width:90%;">
+		<thead>
+			<tr style="height:60px;">
+			    <th>ID</th>
+			    <th>Titulo</th> 
+			    <th>Enlace</th>
+			    <th>Comentario</th>
+			    <th>Categoria</th>
+			    <th></th>
+		  	</tr>
+		</thead>
+	  	<tbody id="contenedorEnlaces">
+	  		
+	  	</tbody>
+		<!--{% for link in lista %}
+			<p style="width:100%; text-align:center; margin-top: 50px; margin-bottom: 50px;">
+			    <span>Id: </span>{{ link.id }} / 
+			    <span>Título: </span>{{ link.titulo }} / 
+			    <a href="{{ link.enlace }}" target="_blank" 
+			    style="color:blue;">Enlace</a> / 
+			    <span>Comentario: </span>{{ link.comentario }} / 
+			    <span>Categoría: </span>{{ link.categoria }} 
+			    <a style="color:black;" href="" id="{{link.id}}"> &rarr;Borrar</a></p>
+		{% endfor %}-->
+	</table>
+	<div style="width: 250px;display:flex; flex-flow: column; margin: 0 auto; text-align:center;">
+		<h2>Crear nuevo Enlace</h2>
+		<p>Título del enlace</p>
+		<input type="text" name="enlacenombre" id="enlacenombre"/>
+		<p>Enlace</p>
+		<input type="text" name="enlacehref" id="enlacehref"/>
+		<p>Breve Comentario</p>
+		<input type="text" name="enlacecomentario" id="enlacecomentario"/>
+		<br>
+		<br>
+		<select name="enlacecategoria" id="enlacecategoria" style="margin:0 auto;margin-bottom: 20px; width: 80px;">
+			{% for cat in categorias %}
+				<option value="{{cat.id}}">{{cat.nombre}}</option>	
+			{% endfor %}
+		</select>
+		<br>
+		<a href="#" id="crearLink" style="color:black;margin-bottom: 20px;">Crear</a>
+	</div>
+	
+{% endblock %}
